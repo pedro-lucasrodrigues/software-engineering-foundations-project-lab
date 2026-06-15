@@ -355,58 +355,274 @@ O sistema deve disponibilizar trilhas de aprendizagem das matérias do ensino fu
 - Registro de transações  
 - Relatórios 
 
-# Software Architecture
+##  8. Arquitetura do Sistema
 
-## Overview
+### 8.1 Visão Geral
+A arquitetura escolhida para o sistema será o microserviços, que permite que cada função da plataforma funcione de maneira eficiente e organizada. A escolha dessa arquitetura garante maior eficiencia, facilidade de manutenção e melhor desempenho do sistema, tornando possível criar uma plataforma educacional mais simples, dinâmica e mais atrativa para reduzir a evasão escolar e aumentar o desempenho dos estudantes.
 
-O projeto consiste no desenvolvimento de um sistema educacional baseado em gamificação dos estudos, com o objetivo de tornar o aprendizado mais dinâmico, interativo e motivador para alunos do ensino fundamental.
+### 8.2 Componentes
+-	Frontend
+Interface visual do sistema, onde alunos e professores poderão acessar aulas, atividades interativas, desafios, rankings e acompanhar o progresso de aprendizagem. 
+-	Backend
+Responsável pelo processamento das informações, gerenciamento das funcionalidades do sistema, autenticação de usuários, regras de negócio e controle das atividades educacionais. 
+-	Banco de Dados
+Armazena informações dos usuários, conteúdos das aulas, desempenho dos alunos, frequência, histórico de atividades e dados necessários para o funcionamento da plataforma. 
+- APIs Externas
+Utilizadas para integração com serviços complementares, como envio de notificações, autenticação, recursos multimídia e ferramentas que auxiliem na experiência interativa do aprendizado. 
 
-A plataforma será voltada para estudantes do 6º ao 9º ano, que, após realizarem um cadastro simples, terão acesso a um login individual. Durante o cadastro, o aluno informará sua idade e o ano escolar em que está, permitindo que o sistema personalize automaticamente sua experiência de aprendizagem.
 
-Com base nessas informações, o aplicativo será responsável por organizar e direcionar as atividades, disponibilizando jogos educativos adequados ao nível do aluno. Os jogos serão divididos por matérias como Português, Matemática, História, entre outras mas também haverá a opção de atividades no modo sortido, trazendo variedade e estimulando diferentes áreas do conhecimento.
+### 8.3 Tecnologias
+- Linguagem  
+- Framework  
+- Banco de dados  
 
-Além disso, o sistema contará com elementos típicos de gamificação para aumentar o engajamento, como o controle de sequência de estudos "streak", que registra quantos dias seguidos o aluno utilizou a plataforma, incentivando a constância nos estudos.
+### 8.4 Decisões Arquiteturais
+Explique como a arquitetura atende aos requisitos não funcionais:
+- Desempenho  
+- Segurança  
+- Escalabilidade  
 
-Outro recurso importante será o sistema de grupos, permitindo que professores ou escolas criem turmas dentro da plataforma. Dessa forma, será possível acompanhar o desempenho dos alunos, promover interação e integrar o uso do aplicativo ao ambiente escolar.
+---
 
-No geral, o projeto busca unir tecnologia e educação de forma acessível, tornando o processo de aprendizagem mais leve, divertido e eficiente.
+---
 
-## Architectural Style
+## 9. Casos de Uso e Diagramas UML
 
-O sistema adota um estilo arquitetural híbrido, combinando o padrão Cliente-Servidor com uma abordagem Baseada em Eventos (Event-Driven) e comunicação em tempo real.
+Esta seção deve representar visualmente e descritivamente o funcionamento do sistema.
 
-Justificativa:
-A escolha desse estilo justifica-se pelas duas dinâmicas principais da plataforma:
+Os diagramas ajudam na:
+- modelagem do sistema;
+- comunicação entre equipe;
+- entendimento da arquitetura e funcionalidades;
+- documentação técnica do projeto.
 
-Salas Interativas em Tempo Real: Para atender à necessidade dos professores de criarem salas e ensinarem de forma dinâmica, a arquitetura utiliza comunicação bidirecional (via WebSockets). Isso garante que as ações do professor e as respostas dos alunos sejam sincronizadas instantaneamente para todos os participantes da sala.
+---
 
-Estudo Independente: Para os alunos que acessam a plataforma de forma autônoma para fixar a matéria, o sistema funciona de maneira assíncrona e isolada. Essa separação de contextos garante que picos de acessos em salas de aula grandes não impactem a experiência e a performance dos usuários que estão estudando sozinhos.
+# 9.1 Casos de Uso
 
-A arquitetura foi desenhada para priorizar a baixa latência na gamificação e a escalabilidade independente de seus módulos principais..
+Os casos de uso representam as interações entre usuários (atores) e o sistema.
 
-## Components
+---
 
-* Component A
-* Component B
+### UC01 - Realizar Login
 
-## Diagram
+**Ator:** Usuário  
 
-Insert diagram.
+**Descrição:**  
+Permite que o usuário acesse o sistema utilizando credenciais válidas.
 
-## Data Flow
+---
 
-Describe flow.
+### Fluxo principal
+1. Usuário acessa a tela de login  
+2. Usuário informa e-mail e senha  
+3. Sistema valida credenciais  
+4. Sistema libera acesso  
 
-## Technologies
+---
 
-List technologies.
+### Fluxo alternativo
+- Credenciais inválidas  
+- Usuário esqueceu senha  
 
-## Risks
+---
 
-Describe risks.
+## Exemplo de Diagrama de Caso de Uso
 
-- Criptografia
+[Usuário]
 
- 
+    |
+    
+    | ---- (Realizar Login)
+    
+    | ---- (Cadastrar Conta)
+    
+    | ---- (Recuperar Senha) 
 
+---
+
+## 9.2 Diagrama de Classes (UML)
+
+O diagrama de classes representa:
+
+- estrutura do sistema;
+- entidades;
+- atributos;
+- métodos;
+- relacionamentos.
+
+---
+
+### Exemplo
+
+```text
++------------------+
+|     Usuário      |
++------------------+
+| - id             |
+| - nome           |
+| - email          |
+| - senha          |
++------------------+
+| + login()        |
+| + logout()       |
++------------------+
+```
+
+---
+
+### Exemplo com relacionamento
+
+```text
++------------------+        +------------------+
+|     Usuário      | 1    * |      Pedido      |
++------------------+--------+------------------+
+| id               |        | id               |
+| nome             |        | valor            |
++------------------+        +------------------+
+```
+
+---
+
+## 9.3 Diagrama de Atividades (UML)
+
+Representa o fluxo de execução de processos no sistema.
+
+---
+
+### Exemplo
+
+```text
+[Início]
+   |
+[Acessar sistema]
+   |
+[Inserir login]
+   |
+{Credenciais válidas?}
+   | Sim
+[Acessa sistema]
+   |
+[Fim]
+
+   | Não
+[Mensagem de erro]
+```
+
+---
+
+## 9.4 Diagrama de Sequência (UML)
+
+Representa a comunicação entre objetos ao longo do tempo.
+
+---
+
+### Exemplo
+
+```text
+Usuário -> Sistema: realizar login
+Sistema -> Banco: validar usuário
+Banco -> Sistema: usuário válido
+Sistema -> Usuário: acesso liberado
+```
+
+---
+
+## 9.5 Diagrama de Componentes
+
+Representa os módulos e componentes principais do sistema.
+
+---
+
+### Exemplo
+
+```text
+[Frontend]
+     |
+     v
+[API Backend]
+     |
+     v
+[Banco de Dados]
+```
+
+---
+
+## 9.6 Diagrama de Implantação (Deployment)
+
+Representa onde o sistema será executado.
+
+---
+
+### Exemplo
+
+```text
+[Usuário]
+     |
+Internet
+     |
+[Servidor Web]
+     |
+[Servidor Banco de Dados]
+```
+
+---
+
+## 9.7 Ferramentas Recomendadas
+
+Os diagramas podem ser feitos utilizando:
+
+- Draw.io
+- Lucidchart
+- StarUML
+- Visual Paradigm
+- PlantUML
+- Mermaid
+- Figma
+
+---
+
+## 9.8 Observações Importantes
+
+- Os diagramas devem representar o sistema REAL do grupo;
+- Evitem diagramas genéricos;
+- Mantenham consistência entre requisitos e diagramas;
+- Diagramas devem possuir nomes claros;
+- Atualizem os diagramas conforme o sistema evoluir.
+
+---
+
+# Regra importante
+
+> “Diagramas não são apenas desenhos: eles representam decisões arquiteturais e técnicas do sistema.”
+
+---
+
+##  10. Plano de Testes
+
+### 10.1 Estratégia de Teste
+Como o sistema será testado?
+
+### 10.2 Tipos de Teste
+- Unitário  
+- Integração  
+- Sistema  
+- Aceitação  
+
+### 10.3 Casos de Teste
+
+#### CT01 - Nome
+**Requisito relacionado:** RF01  
+**Descrição:**  
+**Entrada:**  
+**Resultado esperado:**  
+
+---
+
+### 10.4 Testes de Requisitos Não Funcionais
+- Performance (tempo de resposta)  
+- Segurança  
+- Usabilidade  
+
+---
 ---
