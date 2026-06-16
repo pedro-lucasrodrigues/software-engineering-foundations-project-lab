@@ -361,13 +361,13 @@ O sistema deve disponibilizar trilhas de aprendizagem das matérias do ensino fu
 A arquitetura escolhida para o sistema será em microserviços, permitindo que cada função da plataforma funcione de forma eficiente e organizada. A escolha dessa arquitetura garante maior eficiencia, facilidade de uso e de manutenção e melhor desempenho da plataforma, tornando possível criar uma plataforma simples, dinâmica e mais atrativa para reduzir a evasão escolar e aumentar o desempenho dos estudantes.
 
 ### 8.2 Componentes
--	Frontend
+-	Frontend:
 Interface visual do sistema, onde alunos e professores poderão acessar aulas, atividades, desafios, rankings e acompanhar o progresso de aprendizagem. 
--	Backend
+-	Backend:
 Responsável pelo processamento das informações, gerenciamento das funcionalidades do sistema, autenticação de usuários e controle das atividades educacionais. 
--	Banco de Dados
+-	Banco de Dados:
 Armazena informações dos usuários, conteúdos das aulas, desempenho dos alunos, histórico de atividades e dados necessários para o funcionamento da plataforma. 
--	APIs Externas
+-	APIs Externas:
 Utilizadas para integração com serviços complementares, como envio de notificações e ferramentas que auxiliem na experiência interativa do aprendizado
 
 ### 8.3 Tecnologias
