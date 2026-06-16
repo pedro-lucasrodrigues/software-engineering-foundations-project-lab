@@ -371,21 +371,21 @@ Armazena informações dos usuários, conteúdos das aulas, desempenho dos aluno
 Utilizadas para integração com serviços complementares, como envio de notificações e ferramentas que auxiliem na experiência interativa do aprendizado
 
 ### 8.3 Tecnologias
--	Linguagem
+-	Linguagem:
 JavaScript será utilizada no desenvolvimento do sistema, por ser uma linguagem mais versátil e muito utilizada tanto no frontend quanto no backend. 
--	Framework
+-	Framework:
 React será utilizado no frontend para criar uma interface interativa e dinâmica, enquanto o Node.js será utilizado no backend para processar dados e gerenciar as funcionalidades do sistema.
--	Banco de Dados
+-	Banco de Dados:
 MySQL será utilizado para armazenar informações como cadastro de usuários, desempenho escolar, atividades realizadas, frequência e demais dados necessários para o funcionamento da plataforma. 
 
 
 ### 8.4 Decisões Arquiteturais
 A arquitetura foi planejada para atender aos principais requisitos não funcionais do sistema, garantindo qualidade, estabilidade e capacidade de crescimento da plataforma:
--	Desempenho
+-	Desempenho:
 A utilização de microserviços permite que diferentes funções do sistema operem de forma independente, reduzindo sobrecarga e melhorando o tempo de resposta durante o acesso simultâneo de vários usuários. 
--	Segurança
+-	Segurança:
 O sistema contará com autenticação de usuários, controle de acesso por níveis (aluno e professor), criptografia de dados sensíveis e proteção das informações armazenadas no banco de dados. 
--	Escalabilidade
+-	Usabilidade:
 A arquitetura escolhida permite expandir o sistema de maneira gradual, adicionando novos serviços e funcionalidades sem comprometer o funcionamento geral da plataforma, suportando o aumento de usuários ao longo do tempo
 
 
