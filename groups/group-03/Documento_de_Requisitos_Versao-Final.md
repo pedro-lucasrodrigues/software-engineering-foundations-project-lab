@@ -385,24 +385,36 @@ O sistema deve disponibilizar trilhas de aprendizagem das matérias do ensino fu
 ##  8. Arquitetura do Sistema
 
 ### 8.1 Visão Geral
-A arquitetura utilizada será a Cliente-Servidor, utilizando API RESTful.
+A arquitetura escolhida para o sistema será em microserviços, que permite que cada funcionalidade da plataforma funcione de forma independente e organizada. A escolha dessa arquitetura garante maior eficiencia, facilidade e melhor desempenho do sistema, tornando possível criar uma plataforma educacional simples, dinâmica e mais eficiente para reduzir a evasão escolar e aumentar o desempenho dos estudantes.
 
 ### 8.2 Componentes
-- Frontend  
-- Backend  
-- Banco de dados  
-- APIs externas  
+- Frontend:
+Interface visual do sistema, onde alunos e professores poderão acessar aulas, atividades interativas, desafios, rankings e acompanhar o progresso de aprendizagem. 
+-	Backend:
+Responsável pelo processamento das informações, gerenciamento das funcionalidades do sistema, autenticação de usuários, regras de negócio e controle das atividades educacionais. 
+-	Banco de Dados:
+Armazena informações dos usuários, conteúdos das aulas, desempenho dos alunos, frequência, histórico de atividades e dados necessários para o funcionamento da plataforma. 
+-	APIs Externas:
+Utilizadas para integração com serviços complementares, como envio de notificações, autenticação, recursos multimídia e ferramentas que auxiliem na experiência interativa do aprendizado
+ 
 
 ### 8.3 Tecnologias
-- Linguagem  
-- Framework  
-- Banco de dados  
+-	Linguagem: 
+JavaScript será utilizada no desenvolvimento do sistema, por ser uma linguagem versátil e amplamente utilizada tanto no frontend quanto no backend. 
+-	Framework:
+React será utilizado no frontend para criar uma interface interativa e dinâmica, enquanto Node.js será utilizado no backend para processar dados e gerenciar as funcionalidades do sistema.
+-	Banco de Dados:
+MySQL será utilizado para armazenar informações como cadastro de usuários, desempenho escolar, atividades realizadas, frequência e demais dados necessários para o funcionamento da plataforma. 
+
 
 ### 8.4 Decisões Arquiteturais
-A arquitetura Cliente-Servidor atende aos requisitos não funcionais:
-- Desempenho: Permite que os efeitos visuais e interface sejam aplicados no aparelho do usuário, enquanto o hardware do servidor se ocupa com os cálculos e modificações de dados.
-- Segurança: Permite o isolamento de dados, pois o cliente nunca conversa diretamente com o servidor, apenas a API pode acessar ambos. O modelo RESTful permite maior segurança por exigir tokens de autenticação, que servem como "senhas" para interagir com os dados armazenados.
-- Escalabilidade: Esta arquitetura permite escalabilidade vertical e horizontal, separando o gargalo visual(front-end) do gargalo de processamento de dados(back-end). A API RESTful permite que o aplicativo possa ser lançado para mobile e futuramente desenvolvido em web, com apenas a API sendo conectada às novas versões.
+A arquitetura foi planejada para atender aos principais requisitos não funcionais do sistema, garantindo qualidade, estabilidade e capacidade de crescimento da plataforma.
+-	Desempenho:
+A utilização de microserviços permite que diferentes funções do sistema operem de forma independente, reduzindo sobrecarga e melhorando o tempo de resposta durante o acesso simultâneo de vários usuários. 
+-	Segurança:
+O sistema contará com autenticação de usuários, controle de acesso por níveis (aluno e professor), criptografia de dados sensíveis e proteção das informações armazenadas no banco de dados. 
+-	Escalabilidade:
+A arquitetura escolhida permite expandir o sistema de maneira gradual, adicionando novos serviços e funcionalidades sem comprometer o funcionamento geral da plataforma, suportando o aumento de usuários ao longo do tempo. 
 
 ---
 
